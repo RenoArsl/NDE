@@ -16,7 +16,7 @@ coeffs = compute_poly_coeffs(x, y);
 
 
 u = 1.5;  
-p_value = polyval(coeffs, u);
+p_value = polyval(flip(coeffs), u);
 
 
 fprintf('P(%f) = %f\n', u, p_value);
@@ -24,7 +24,7 @@ fprintf('P(%f) = %f\n', u, p_value);
 x_vals = linspace(min(x), max(x), 100); 
 
 
-y_vals = polyval(coeffs, x_vals);
+y_vals = polyval(fliplr(coeffs), x_vals);
 
 
 figure;

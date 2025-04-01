@@ -3,13 +3,15 @@ y = [2; -1; 7];
 
 A = vander(x);
 
-cond_A = cond(A);
+A = fliplr(A);
 
 coeffs = A \ y;
 
-error_norm = norm(A * coeffs - y, 2);
+disp('Polynomial coefficients (from lowest to highest order):');
+disp(coeffs');
+% Define evaluation point
 
-disp('Condition number of Vandermonde matrix:');
-disp(cond_A);
-disp('Error norm:');
-disp(error_norm);
+p_value = polyval(flip(coeffs), u);
+
+% Display result
+fprintf('P_n(%.2f) = %.4f\n', u, p_value);
